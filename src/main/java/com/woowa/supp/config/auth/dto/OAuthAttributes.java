@@ -15,16 +15,15 @@ public class OAuthAttributes {
 	private String login;
 
 	@Builder
-	public OAuthAttributes(
-		Map<String, Object> attributes, String nameAttributeKey, String name, String login) {
+	public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String login) {
 		this.attributes = attributes;
 		this.nameAttributeKey = nameAttributeKey;
 		this.name = name;
 		this.login = login;
 	}
 
-	public static OAuthAttributes of(
-		String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+	public static OAuthAttributes of(String registrationId, String userNameAttributeName,
+		Map<String, Object> attributes) {
 
 		return ofGithub(userNameAttributeName, attributes);
 	}
