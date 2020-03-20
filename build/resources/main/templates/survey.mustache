@@ -1,14 +1,12 @@
 {{>layout/header}}
-
-<h1>{{question}}</h1>
-
+<h1 id="question"></h1>
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-6">
-            <a href={{pageYes}} role="button" class="btn btn-primary">{{answerYes}}</a>
-            <a href={{pageNo}} role="button" class="btn btn-primary">{{answerNo}}</a>
+            <a id="left" role="button" class="btn btn-primary"></a>
+            <a id="right" role="button" class="btn btn-primary"></a>
         </div>
     </div>
 </div>
 
-{{>layout/footer}}
+{{>layout/footer-survey}}
