@@ -12,6 +12,15 @@ var main = {
         localStorage.setItem("8", "프로젝트가 끝났을 때 당신이 드는 생각은");
         localStorage.setItem("9", "프로그래밍에 있어 가장 중요한 것은 무엇인가요?");
 
+        localStorage.setItem("s1", "눈을 들어 본인의 노트북을 봅니다. 어떤 모양이 보이나요?");
+        localStorage.setItem("s2", "안녕하세요! 페어를 만났습니다, 누구의 컴퓨터를 사용 할것 입니까?");
+        localStorage.setItem("s3", "페어 프로그래밍을 시작합니다. 두근 두근.. 앗! 그전에 쉬는 시간은 어떻게 하는게 좋을까요?");
+        localStorage.setItem("s4", "즐거운 페어 프로그래밍! 순서는 어떻게 돌아가는게 좋을까요?");
+        localStorage.setItem("s5", "째깍째깍.. 저녁 6시가 되었습니다. 아직 할 건 남아있는데.. 페어에게 건네는 당신의 말은?");
+        localStorage.setItem("s6", "테스트 메소드 명");
+        localStorage.setItem("s7", "git 컨벤션");
+        localStorage.setItem("s8", "이후에 만날 나의 크루에게 처음으로 하고 싶은 말");
+
         _this.changeQuestion("0");
         document.getElementById("left").innerHTML = "저는 여러가지 일들을 가뿐하게 처리하죠!";
         document.getElementById("right").innerHTML = "한번에 하나의 일만 할 수는 없는건가요?";
@@ -23,8 +32,8 @@ var main = {
             _this.toStage(2, _this.changeQuestion, _this);
         });
     },
-    changeQuestion : key => document.getElementById("question").innerHTML = localStorage.getItem(key),
-    toStage : (key, changeQuestion, _this) => {
+    changeQuestion: key => document.getElementById("question").innerHTML = localStorage.getItem(key),
+    toStage: (key, changeQuestion, _this) => {
         changeQuestion(key);
         switch (key) {
             case 1 : {
@@ -87,10 +96,13 @@ var main = {
                 document.getElementById("right").innerHTML = "빠르게 기초를 배우고 코드에 바로 적용하는 편이에요.";
                 $('#left').on('click', () => {
                     localStorage.setItem("type", "Mad Scientist");
-
+                    _this.removeLeftRightButtons();
+                    _this.toStyle("s1", _this);
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "MacGyver");
+                    _this.removeLeftRightButtons();
+                    _this.toStyle("s1", _this);
                 });
                 break;
             }
@@ -99,9 +111,13 @@ var main = {
                 document.getElementById("right").innerHTML = "모든 가능성을 고려한 코드를 작성하는 편이에요!";
                 $('#left').on('click', () => {
                     localStorage.setItem("type", "MacGyver");
+                    _this.removeLeftRightButtons();
+                    _this.toStyle("s1", _this);
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "The Architect");
+                    _this.removeLeftRightButtons();
+                    _this.toStyle("s1", _this);
                 });
                 break;
             }
@@ -113,6 +129,8 @@ var main = {
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "Code Guardian");
+                    _this.removeLeftRightButtons();
+                    _this.toStyle("s1", _this);
                 });
                 break;
             }
@@ -121,15 +139,114 @@ var main = {
                 document.getElementById("right").innerHTML = "재능!";
                 $('#left').on('click', () => {
                     localStorage.setItem("type", "Code Guardian");
+                    _this.removeLeftRightButtons();
+                    _this.toStyle("s1", _this);
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "Ninja");
+                    _this.removeLeftRightButtons();
+                    _this.toStyle("s1", _this);
                 });
                 break;
             }
 
         }
+    },
+    removeLeftRightButtons: () => {
+        $('#left').remove();
+        $('#right').remove();
+    },
+    toStyle: (key, _this) => {
+        _this.changeQuestion(key);
+        _this.createStyleOptionsIn(key);
+        let nextKey = _this.getNextOf(key);
+        $('.styleOption').on('click', () => {
+            localStorage.setItem(key, $(this).innerText);
+            _this.deleteStyleOptions();
+            _this.toStyle(nextKey, _this);
+        })
+    },
+
+    createStyleOptionsIn: key => {
+        switch (key) {
+            case "s1" : {
+                const options = ["사과", "창문", "펭귄"];
+                options.forEach(option => {
+                    var button = document.createElement('button');
+                    var text = document.createTextNode(option);
+                    button.appendChild(text);
+                    button.className = 'styleOption';
+                    document.body.appendChild(button);
+                })
+                break;
+            }
+            case "s2" : {
+                const options = ["내 컴퓨터", "페어의 컴퓨터", "아무거나", "번갈아가면서"];
+                options.forEach(option => {
+                    var button = document.createElement('button');
+                    var text = document.createTextNode(option);
+                    button.appendChild(text);
+                    button.className = 'styleOption';
+                    document.body.appendChild(button);
+                })
+                break;
+            }
+            case "s3" : {
+                const options = ["저는 진짜 힘들때까진 계속 코딩 하는 편이에요", "저는 일정 시간마다 쉬어야 합니다.", "저는 뭐.. 상관 없습니다."];
+                options.forEach(option => {
+                    var button = document.createElement('button');
+                    var text = document.createTextNode(option);
+                    button.appendChild(text);
+                    button.className = 'styleOption';
+                    document.body.appendChild(button);
+                })
+                break;
+            }
+            case "s4" : {
+                const options = ["시간을 정해서 돌아간다.", "기능을 정해서 돌아간다."];
+                options.forEach(option => {
+                    var button = document.createElement('button');
+                    var text = document.createTextNode(option);
+                    button.appendChild(text);
+                    button.className = 'styleOption';
+                    document.body.appendChild(button);
+                })
+                break;
+            }
+            case "s5" : {
+                const options = ["밥먹고 더할까요?", "내일 마무리 해보죠.", "상대방의 말을 기다린다."];
+                options.forEach(option => {
+                    var button = document.createElement('button');
+                    var text = document.createTextNode(option);
+                    button.appendChild(text);
+                    button.className = 'styleOption';
+                    document.body.appendChild(button);
+                })
+                break;
+            }
+        }
+    },
+    getNextOf: key => {
+        switch (key) {
+            case "s1" :
+                return "s2";
+            case "s2" :
+                return "s3";
+            case "s3" :
+                return "s4";
+            case "s4" :
+                return "s5";
+            case "s5" :
+                return "s6";
+            case "s6" :
+                return "s7";
+            case "s7" :
+                return "s8";
+        }
+    },
+    deleteStyleOptions: () => {
+        $('.styleOption').remove();
     }
-};
+}
 
 main.init();
