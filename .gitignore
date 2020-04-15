@@ -95,3 +95,4 @@ fabric.properties
 /.gradle/
 /build/
 secret.txt
+application-oauth.properties
