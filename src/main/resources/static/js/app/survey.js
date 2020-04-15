@@ -143,6 +143,7 @@ var main = {
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(localStorage.getItem("type"))
         }).done(() => {
+            localStorage.clear();
             window.location.href = '/pair';
         }).fail(error => {
             alert(JSON.stringify(error))
