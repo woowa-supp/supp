@@ -94,5 +94,4 @@ fabric.properties
 /.idea/
 /.gradle/
 /build/
-secret.txt
 application-oauth.properties
