@@ -87,10 +87,11 @@ var main = {
                 document.getElementById("right").innerHTML = "빠르게 기초를 배우고 코드에 바로 적용하는 편이에요.";
                 $('#left').on('click', () => {
                     localStorage.setItem("type", "Mad Scientist");
-
+                    _this.saveType();
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "MacGyver");
+                    _this.saveType();
                 });
                 break;
             }
@@ -99,9 +100,11 @@ var main = {
                 document.getElementById("right").innerHTML = "모든 가능성을 고려한 코드를 작성하는 편이에요!";
                 $('#left').on('click', () => {
                     localStorage.setItem("type", "MacGyver");
+                    _this.saveType();
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "The Architect");
+                    _this.saveType();
                 });
                 break;
             }
@@ -113,6 +116,7 @@ var main = {
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "Code Guardian");
+                    _this.saveType();
                 });
                 break;
             }
@@ -121,14 +125,29 @@ var main = {
                 document.getElementById("right").innerHTML = "재능!";
                 $('#left').on('click', () => {
                     localStorage.setItem("type", "Code Guardian");
+                    _this.saveType();
                 });
                 $('#right').on('click', () => {
                     localStorage.setItem("type", "Ninja");
+                    _this.saveType();
                 });
                 break;
             }
-
         }
+    },
+    saveType : () => {
+        $.ajax({
+            type: 'PUT',
+            url: '/api/v1/type',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(localStorage.getItem("type"))
+        }).done(() => {
+            localStorage.clear();
+            window.location.href = '/pair';
+        }).fail(error => {
+            alert(JSON.stringify(error))
+        });
     }
 };
 

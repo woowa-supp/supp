@@ -1,4 +1,4 @@
-package com.woowa.supp.domain.styles;
+package com.woowa.supp.domain.surveyee.style;
 
 public enum OSStyle {
 	APPLE,
