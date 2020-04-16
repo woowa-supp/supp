@@ -20,12 +20,12 @@ public class IndexController {
 	}
 
 	@GetMapping("/survey-type")
-	public String survey() {
+	public String surveyType() {
 		return "survey-type";
 	}
 
 	@GetMapping("/survey-style")
-	public String pair() {
+	public String surveyStyle(Model model) {
 		return "survey-style";
 	}
 }
