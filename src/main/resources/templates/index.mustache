@@ -8,7 +8,7 @@
             {{#loginName}}
                 Logged in as: <span id="user">{{loginName}}</span>
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                <a href="/survey" role="button" class="btn btn-primary">시작</a>
+                <a href="/survey-type" role="button" class="btn btn-primary">시작</a>
             {{/loginName}}
             {{^loginName}}
                 <a href="/oauth2/authorization/github" class="btn btn-success active" role="button">Github Login</a>
