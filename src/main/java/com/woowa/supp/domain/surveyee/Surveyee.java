@@ -27,7 +27,7 @@ public class Surveyee {
 	private Long id;
 
 	@Column(nullable = false)
-	private String email;
+	private String login;
 
 	@Enumerated(EnumType.STRING)
 	private DeveloperType developerType;
@@ -48,8 +48,8 @@ public class Surveyee {
 	private PairTurnStyle pairTurnStyle;
 
 	@Builder
-	public Surveyee(String email, DeveloperType developerType, AfterStudyStyle afterStudyStyle, BreaktimeStyle breaktimeStyle, ComputerPreferStyle computerPreferStyle, OSStyle osStyle, PairTurnStyle pairTurnStyle) {
-		this.email = email;
+	public Surveyee(String login, DeveloperType developerType, AfterStudyStyle afterStudyStyle, BreaktimeStyle breaktimeStyle, ComputerPreferStyle computerPreferStyle, OSStyle osStyle, PairTurnStyle pairTurnStyle) {
+		this.login = login;
 		this.developerType = developerType;
 		this.afterStudyStyle = afterStudyStyle;
 		this.breaktimeStyle = breaktimeStyle;

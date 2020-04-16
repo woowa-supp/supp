@@ -5,14 +5,14 @@
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-6">
-            {{#userName}}
-                Logged in as: <span id="user">{{userName}}</span>
+            {{#loginName}}
+                Logged in as: <span id="user">{{loginName}}</span>
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
                 <a href="/survey" role="button" class="btn btn-primary">시작</a>
-            {{/userName}}
-            {{^userName}}
+            {{/loginName}}
+            {{^loginName}}
                 <a href="/oauth2/authorization/github" class="btn btn-success active" role="button">Github Login</a>
-            {{/userName}}
+            {{/loginName}}
         </div>
     </div>
 </div>

@@ -21,14 +21,14 @@ public class SurveyService {
 	@Transactional
 	public Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
 		Surveyee surveyee = Surveyee.builder()
-			.email(sessionUser.getEmail())
+			.login(sessionUser.getLogin())
 			.developerType(requestDto.toEntity())
 			.build();
 
 		return surveyeeRepository.save(surveyee).getId();
 	}
 
-	public Optional<Surveyee> findByEmail(SessionUser user) {
-		return surveyeeRepository.findByEmail(user.getEmail());
+	public Optional<Surveyee> findByLogin(SessionUser user) {
+		return surveyeeRepository.findByLogin(user.getLogin());
 	}
 }

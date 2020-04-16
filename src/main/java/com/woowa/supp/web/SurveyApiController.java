@@ -19,8 +19,8 @@ public class SurveyApiController {
 
     @PutMapping("/api/v1/type")
     public Long saveType(@RequestBody DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser user) {
-        if (surveyService.findByEmail(user).isPresent()) {
-            throw new IllegalArgumentException(user.getName() + "is present");
+        if (surveyService.findByLogin(user).isPresent()) {
+            throw new IllegalArgumentException(user.getLogin() + " is present");
         }
         return surveyService.saveType(requestDto, user);
     }
