@@ -50,15 +50,9 @@ public class Surveyee {
 	private PairTurnStyle pairTurnStyle;
 
 	@Builder
-	public Surveyee(Long id, String login, DeveloperType developerType, AfterStudyStyle afterStudyStyle, BreaktimeStyle breaktimeStyle, ComputerPreferStyle computerPreferStyle, OSStyle osStyle, PairTurnStyle pairTurnStyle) {
-		this.id = id;
+	public Surveyee(String login, DeveloperType developerType) {
 		this.login = login;
 		this.developerType = developerType;
-		this.afterStudyStyle = afterStudyStyle;
-		this.breaktimeStyle = breaktimeStyle;
-		this.computerPreferStyle = computerPreferStyle;
-		this.osStyle = osStyle;
-		this.pairTurnStyle = pairTurnStyle;
 	}
 
 	public void updateStylesBy(Map<String, Object> styles) {
