@@ -138,13 +138,13 @@ var main = {
     saveType : () => {
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/type',
+            url: '/api/v1/survey-type',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(localStorage.getItem("type"))
         }).done(() => {
             localStorage.clear();
-            window.location.href = '/pair';
+            window.location.href = '/survey-style';
         }).fail(error => {
             alert(JSON.stringify(error))
         });

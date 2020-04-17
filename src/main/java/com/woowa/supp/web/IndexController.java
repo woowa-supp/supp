@@ -19,13 +19,18 @@ public class IndexController {
 		return "index";
 	}
 
-	@GetMapping("/survey")
-	public String survey() {
-		return "survey";
+	@GetMapping("/survey-type")
+	public String surveyType() {
+		return "survey-type";
 	}
 
-	@GetMapping("/pair")
-	public String pair() {
-		return "pair";
+	@GetMapping("/survey-style")
+	public String surveyStyle() {
+		return "survey-style";
+	}
+
+	@GetMapping("/result")
+	public String result() {
+		return "result";
 	}
 }
