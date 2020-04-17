@@ -1,5 +1,7 @@
 package com.woowa.supp.domain.surveyee;
 
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -48,7 +50,8 @@ public class Surveyee {
 	private PairTurnStyle pairTurnStyle;
 
 	@Builder
-	public Surveyee(String login, DeveloperType developerType, AfterStudyStyle afterStudyStyle, BreaktimeStyle breaktimeStyle, ComputerPreferStyle computerPreferStyle, OSStyle osStyle, PairTurnStyle pairTurnStyle) {
+	public Surveyee(Long id, String login, DeveloperType developerType, AfterStudyStyle afterStudyStyle, BreaktimeStyle breaktimeStyle, ComputerPreferStyle computerPreferStyle, OSStyle osStyle, PairTurnStyle pairTurnStyle) {
+		this.id = id;
 		this.login = login;
 		this.developerType = developerType;
 		this.afterStudyStyle = afterStudyStyle;
@@ -56,5 +59,13 @@ public class Surveyee {
 		this.computerPreferStyle = computerPreferStyle;
 		this.osStyle = osStyle;
 		this.pairTurnStyle = pairTurnStyle;
+	}
+
+	public void updateStylesBy(Map<String, Object> styles) {
+		this.osStyle = OSStyle.of(styles.get("0").toString());
+		this.computerPreferStyle = ComputerPreferStyle.of(styles.get("1").toString());
+		this.breaktimeStyle = BreaktimeStyle.of(styles.get("2").toString());
+		this.pairTurnStyle = PairTurnStyle.of(styles.get("3").toString());
+		this.afterStudyStyle = AfterStudyStyle.of(styles.get("4").toString());
 	}
 }

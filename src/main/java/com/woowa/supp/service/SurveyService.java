@@ -1,5 +1,6 @@
 package com.woowa.supp.service;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -25,6 +26,14 @@ public class SurveyService {
 			.developerType(requestDto.toEntity())
 			.build();
 
+		return surveyeeRepository.save(surveyee).getId();
+	}
+
+	@Transactional
+	public Long saveStyle(Map<String, Object> styles, @LoginUser SessionUser sessionUser) {
+		// TODO: 2020/04/17 type 등록이 안된 상태로 접근한다면?
+		Surveyee surveyee = surveyeeRepository.findByLogin(sessionUser.getLogin()).get();
+		surveyee.updateStylesBy(styles);
 		return surveyeeRepository.save(surveyee).getId();
 	}
 

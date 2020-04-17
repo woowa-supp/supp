@@ -1,5 +1,6 @@
 package com.woowa.supp.web;
 
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,5 +24,10 @@ public class SurveyApiController {
             throw new IllegalArgumentException(user.getLogin() + " is present");
         }
         return surveyService.saveType(requestDto, user);
+    }
+
+    @PutMapping("/api/v1/survey-style")
+    public Long saveStyle(@RequestBody Map<String, Object> styles, @LoginUser SessionUser user) {
+        return surveyService.saveStyle(styles, user);
     }
 }
