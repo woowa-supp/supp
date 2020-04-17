@@ -22,10 +22,16 @@ public class SurveyService {
 	@Transactional
 	public Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
 		Surveyee surveyee = Surveyee.builder()
-			.login(sessionUser.getLogin())
-			.developerType(requestDto.toEntity())
-			.build();
+				.login(sessionUser.getLogin())
+				.developerType(requestDto.toEntity())
+				.build();
 
+		return surveyeeRepository.save(surveyee).getId();
+	}
+
+	@Transactional
+	public Long updateType(DeveloperTypeSaveRequestDto requestDto, Surveyee surveyee) {
+		surveyee.updateTypeBy(requestDto.toEntity());
 		return surveyeeRepository.save(surveyee).getId();
 	}
 
