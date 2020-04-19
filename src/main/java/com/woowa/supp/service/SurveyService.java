@@ -46,4 +46,8 @@ public class SurveyService {
 	public Optional<Surveyee> findByLogin(SessionUser user) {
 		return surveyeeRepository.findByLogin(user.getLogin());
 	}
+
+	public Optional<Surveyee> findByLogin(String login) {
+		return surveyeeRepository.findByLogin(login);
+	}
 }

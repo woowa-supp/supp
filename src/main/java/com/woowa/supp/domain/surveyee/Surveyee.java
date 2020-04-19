@@ -49,6 +49,15 @@ public class Surveyee {
 	@Enumerated(EnumType.STRING)
 	private PairTurnStyle pairTurnStyle;
 
+	@Column
+	private String testName;
+
+	@Column
+	private String gitConvention;
+
+	@Column
+	private String messageToCrew;
+
 	@Builder
 	public Surveyee(String login, DeveloperType developerType) {
 		this.login = login;
@@ -69,5 +78,8 @@ public class Surveyee {
 		this.breaktimeStyle = BreaktimeStyle.of(styles.get("2").toString());
 		this.pairTurnStyle = PairTurnStyle.of(styles.get("3").toString());
 		this.afterStudyStyle = AfterStudyStyle.of(styles.get("4").toString());
+		this.testName = styles.get("5").toString();
+//		this.gitConvention = styles.get("6").toString();
+//		this.messageToCrew = styles.get("7").toString();
 	}
 }
