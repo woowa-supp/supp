@@ -6,13 +6,9 @@ import com.woowa.supp.domain.surveyee.Surveyee;
 import com.woowa.supp.service.SurveyService;
 import com.woowa.supp.web.dto.DeveloperTypeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-
-import static org.springframework.data.util.Optionals.ifPresentOrElse;
 
 @RequiredArgsConstructor
 @RestController
@@ -22,12 +18,9 @@ public class SurveyApiController {
 
     @PutMapping("/api/v1/survey-type")
     public Long saveType(@RequestBody DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser user) {
-        if (surveyService.findByLogin(user).isPresent()) {
-            Surveyee surveyee = surveyService.findByLogin(user)
-                    .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 Surveyee입니다."));
-            return surveyService.updateType(requestDto, surveyee);
-        }
-        return surveyService.saveType(requestDto, user);
+        return surveyService.findByLogin(user)
+                .map(surveyee -> surveyService.updateType(requestDto, surveyee))
+                .orElseGet(() -> surveyService.saveType(requestDto, user));
     }
 
     @PutMapping("/api/v1/survey-style")
