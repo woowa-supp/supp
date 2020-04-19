@@ -26,7 +26,7 @@ public class SurveyResultResponseDto {
 		this.pairTurn = entity.getPairTurnStyle().name();
 		this.afterStudy = entity.getAfterStudyStyle().name();
 		this.testName = entity.getTestName();
-//		this.gitConvention = entity.getGitConvention();
-//		this.messageToCrew = entity.getMessageToCrew();
+		this.gitConvention = entity.getGitConvention();
+		this.messageToCrew = entity.getMessageToCrew();
 	}
 }

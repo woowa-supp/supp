@@ -39,7 +39,7 @@ function putAnswers() {
 }
 
 async function renderPage() {
-    if (currentQuestionCount === 6) {
+    if (currentQuestionCount === 8) {
         putAnswers();
     } else if (currentQuestionCount === 5) {
         document.getElementById(`question`).innerHTML = questions[currentQuestionCount]; // question 넣기 - 사실상 title
@@ -84,6 +84,80 @@ async function renderPage() {
             var secondAnswer = $("textarea#methodName").val();
 
             resultMap[currentQuestionCount++] = {firstAnswer, secondAnswer}; // map에 넣기 (복수개가 들어가네..?!)
+            renderPage();
+        });
+    } else if (currentQuestionCount === 6) {
+        document.getElementById(`question`).innerHTML = questions[currentQuestionCount]; // question 넣기 - 사실상 title
+        await $(`.answerContainer`).empty(); // answerContainer 초기화 - 이전 문제에서 채워졌기 때문
+
+        var answerHelpContainer = document.createElement('div'); // answerHelpImage를 위한 div (사실상 question)
+        answerHelpContainer.className = `answer help`;
+        var answerHelpImage = document.createElement('img'); // answerHelpImage 넣기
+        answerHelpImage.src = "/image/question_7.png"; // static 폴더에서 가져옴
+        answerHelpImage.alt = "answer help image";
+        answerHelpContainer.appendChild(answerHelpImage);
+        answerHelpContainer.appendChild(document.createElement(`br`));
+        $(`.answerContainer`).append(answerHelpContainer); // answerContainer에 붙여주기
+
+        var answerFormContainer = document.createElement('div'); // 정답을 입력받을 div 생성
+        answerFormContainer.className = `answer form`;
+
+        var firstAnswerTextArea = document.createElement('textarea'); // 첫번째 정답 textarea 생성
+        firstAnswerTextArea.id = "displayName";
+        firstAnswerTextArea.placeholder = "기능 수정";
+
+        var secondAnswerTextArea = document.createElement('textarea'); // 두번째 정답 textarea 생성
+        secondAnswerTextArea.id = "methodName";
+        secondAnswerTextArea.placeholder = "기능 구현";
+
+        answerFormContainer.appendChild(firstAnswerTextArea);
+        answerFormContainer.appendChild(document.createElement(`br`));
+        answerFormContainer.appendChild(secondAnswerTextArea);
+
+        var answerButton = document.createElement('button'); // 제출 버튼 생성
+        answerButton.className = `answer btn btn-primary`;
+        answerButton.id = "btn-save";
+        var answerText = document.createTextNode("완료");
+        answerButton.appendChild(answerText);
+
+        $(`.answerContainer`).append(answerFormContainer);
+        $(`.answerContainer`).append(answerButton);
+
+
+        await $(`#btn-save`).on(`click`, function () {
+            var firstAnswer = $("textarea#displayName").val();
+            var secondAnswer = $("textarea#methodName").val();
+
+            resultMap[currentQuestionCount++] = {firstAnswer, secondAnswer}; // map에 넣기 (복수개가 들어가네..?!)
+            renderPage();
+        });
+    } else if (currentQuestionCount === 7) {
+        document.getElementById(`question`).innerHTML = questions[currentQuestionCount]; // question 넣기 사실상 title
+        await $(`.answerContainer`).empty(); // answerContainer 초기화 - 이전 문제에서 채워졌기 때문
+
+        var answerFormContainer = document.createElement('div'); // 정답을 입력받을 div 생성
+        answerFormContainer.className = `answer form`;
+
+        var messageToCrew = document.createElement('textarea');
+        messageToCrew.id = "messageToCrew";
+        messageToCrew.placeholder = "소개하는 말을 남겨주세요";
+
+        answerFormContainer.appendChild(messageToCrew);
+
+        var answerButton = document.createElement('button'); // 제출 버튼 생성
+        answerButton.className = `answer btn btn-primary`;
+        answerButton.id = "btn-save";
+        var answerText = document.createTextNode("완료");
+        answerButton.appendChild(answerText);
+
+        $(`.answerContainer`).append(answerFormContainer);
+        $(`.answerContainer`).append(answerButton);
+
+
+        await $(`#btn-save`).on(`click`, function () {
+            var firstAnswer = $("textarea#messageToCrew").val();
+
+            resultMap[currentQuestionCount++] = {firstAnswer};
             renderPage();
         });
     } else {

@@ -79,7 +79,7 @@ public class Surveyee {
 		this.pairTurnStyle = PairTurnStyle.of(styles.get("3").toString());
 		this.afterStudyStyle = AfterStudyStyle.of(styles.get("4").toString());
 		this.testName = styles.get("5").toString();
-//		this.gitConvention = styles.get("6").toString();
-//		this.messageToCrew = styles.get("7").toString();
+		this.gitConvention = styles.get("6").toString();
+		this.messageToCrew = styles.get("7").toString();
 	}
 }
