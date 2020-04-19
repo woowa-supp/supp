@@ -1,16 +1,14 @@
 package com.woowa.supp.web;
 
-import java.util.Map;
-
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.woowa.supp.config.auth.LoginUser;
 import com.woowa.supp.config.auth.dto.SessionUser;
+import com.woowa.supp.domain.surveyee.Surveyee;
 import com.woowa.supp.service.SurveyService;
 import com.woowa.supp.web.dto.DeveloperTypeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
@@ -20,10 +18,9 @@ public class SurveyApiController {
 
     @PutMapping("/api/v1/survey-type")
     public Long saveType(@RequestBody DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser user) {
-        if (surveyService.findByLogin(user).isPresent()) {
-            throw new IllegalArgumentException(user.getLogin() + " is present");
-        }
-        return surveyService.saveType(requestDto, user);
+        return surveyService.findByLogin(user)
+                .map(surveyee -> surveyService.updateType(requestDto, surveyee))
+                .orElseGet(() -> surveyService.saveType(requestDto, user));
     }
 
     @PutMapping("/api/v1/survey-style")

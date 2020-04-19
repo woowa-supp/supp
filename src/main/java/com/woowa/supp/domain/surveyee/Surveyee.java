@@ -55,6 +55,14 @@ public class Surveyee {
 		this.developerType = developerType;
 	}
 
+	public boolean hasType() {
+		return developerType != null;
+	}
+
+	public void updateTypeBy(DeveloperType developerType) {
+		this.developerType = developerType;
+	}
+
 	public void updateStylesBy(Map<String, Object> styles) {
 		this.osStyle = OSStyle.of(styles.get("0").toString());
 		this.computerPreferStyle = ComputerPreferStyle.of(styles.get("1").toString());
