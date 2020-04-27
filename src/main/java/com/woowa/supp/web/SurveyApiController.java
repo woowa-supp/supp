@@ -13,7 +13,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 public class SurveyApiController {
-
     private final SurveyService surveyService;
 
     @PutMapping("/api/v1/survey-type")

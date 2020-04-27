@@ -1,6 +1,10 @@
 package com.woowa.supp.web;
 
+import com.woowa.supp.domain.surveyee.DeveloperType;
+import com.woowa.supp.domain.surveyee.Surveyee;
 import com.woowa.supp.service.SurveyService;
+
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +15,11 @@ import lombok.RequiredArgsConstructor;
 
 import static org.springframework.data.util.Optionals.ifPresentOrElse;
 
+import java.util.NoSuchElementException;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
-
 	private final SurveyService surveyService;
 
 	@GetMapping("/")
@@ -39,7 +44,9 @@ public class IndexController {
 	}
 
 	@GetMapping("/result")
-	public String result() {
-		return "result";
+	public String result(@LoginUser SessionUser user) {
+		Surveyee surveyee = surveyService.findByLogin(user).orElseThrow(NoSuchElementException::new);
+		DeveloperType type = surveyee.getDeveloperType();
+		return "/type-result/" + type.name().toLowerCase();
 	}
 }
