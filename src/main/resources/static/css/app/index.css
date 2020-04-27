@@ -1,0 +1,44 @@
+@font-face { font-family: 'BMHANNAPro'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+.title {
+    font-family: BMHANNAPro, serif;
+    color: white;
+    text-align: center;
+    margin-top: 4.5rem;
+    font-size: 3.5rem;
+    padding: 2rem 11rem;
+}
+
+.subject {
+    font-family: BMHANNAPro, serif;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.sub_subject {
+    font-family: BMHANNAPro, serif;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    font-size: 2rem;
+}
+
+body {
+    height: 100vh;
+    background: url("images/index-background.png") no-repeat center/cover;
+}
+
+.btn {
+    text-align: center;
+}
+
+#user {
+    top: 0.5rem;
+    right: 2rem;
+    position: absolute;
+    text-align: right;
+}
