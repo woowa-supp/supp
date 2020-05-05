@@ -22,7 +22,7 @@ public class SurveyService {
 	@Transactional
 	public Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
 		Surveyee surveyee = Surveyee.builder()
-				.login(sessionUser.getLogin())
+				.login(sessionUser.getLogin().toLowerCase())
 				.developerType(requestDto.toEntity())
 				.build();
 
@@ -45,5 +45,9 @@ public class SurveyService {
 
 	public Optional<Surveyee> findByLogin(SessionUser user) {
 		return surveyeeRepository.findByLogin(user.getLogin());
+	}
+
+	public Optional<Surveyee> findByLogin(String login) {
+		return surveyeeRepository.findByLogin(login);
 	}
 }
