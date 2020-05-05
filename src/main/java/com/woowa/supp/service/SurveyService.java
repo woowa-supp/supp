@@ -22,7 +22,7 @@ public class SurveyService {
 	@Transactional
 	public Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
 		Surveyee surveyee = Surveyee.builder()
-				.login(sessionUser.getLogin().toLowerCase())
+				.login(sessionUser.getLogin())
 				.developerType(requestDto.toEntity())
 				.build();
 
