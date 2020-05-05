@@ -22,7 +22,7 @@ const answers = {
     // 5 : [],
     // 6 : [],
     // 7 : []
-}
+};
 
 function putAnswers() {
     $.ajax({
