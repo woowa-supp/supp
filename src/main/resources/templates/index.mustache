@@ -3,28 +3,28 @@
 <h1 class="title">supp 검사가 너무 정확해 "살짝 소름이 돋을 정도예요"라고 성격 유형 검사를 마친 포비는 말했습니다.</h1>
 <h3 class="subject">쉽고 간단하면서도 정확한 성격 유형 검사를 통해 당신이 누구이며, 왜 그러한 특정 행동 성향을 보이는지 확인하십시오.</h3>
 {{#loginName}}
-    <span class="sub_subject" id="user">안녕하세요! {{loginName}} 크루님!</span>
-    <div class="col-md-12">
-    <div class="row">
-    <div class="row text-center" style="width: 100%">
-    <div style="width: 30%; float:none; margin:0 auto">
-        <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-    {{#isTypeSurveyDone}}
-            <a href="/survey-type" role="button" class="btn btn-primary">수정</a>
-    {{/isTypeSurveyDone}}
-    {{^isTypeSurveyDone}}
-            <a href="/survey-type" role="button" class="btn btn-primary">시작</a>
-    {{/isTypeSurveyDone}}
+  <span class="sub_subject" id="user">안녕하세요! {{loginName}} 크루님!</span>
+  <div class="col-md-12">
+  <div class="row">
+  <div class="row text-center" style="width: 100%">
+  <div style="width: 30%; float:none; margin:0 auto">
+    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+  {{#isTypeSurveyDone}}
+      <a href="/survey-type" role="button" class="btn btn-primary">수정</a>
+  {{/isTypeSurveyDone}}
+  {{^isTypeSurveyDone}}
+      <a href="/survey-type" role="button" class="btn btn-primary">시작</a>
+  {{/isTypeSurveyDone}}
 {{/loginName}}
 {{^loginName}}
+  </div>
+  </div>
+    <div class="row text-center" style="width: 100%">
+      <div style="width: 30%; float:none; margin:0 auto">
+        <a href="/oauth2/authorization/github" class="btn btn-success btn-round" role="button"
+           style="width: 100%">Github Login</a>
+      </div>
     </div>
-    </div>
-        <div class="row text-center" style="width: 100%">
-            <div style="width: 30%; float:none; margin:0 auto">
-                <a href="/oauth2/authorization/github" class="btn btn-success btn-round" role="button"
-                   style="width: 100%">Github Login</a>
-            </div>
-        </div>
 {{/loginName}}
 </div>
 </div>
