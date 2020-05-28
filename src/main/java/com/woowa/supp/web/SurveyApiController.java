@@ -38,7 +38,7 @@ public class SurveyApiController {
 	@GetMapping("/api/v1/survey-result")
 	public SurveyResultResponseDto findById(@LoginUser SessionUser user) {
 		Surveyee surveyee = surveyService.findByLogin(user)
-				.orElseThrow(IllegalArgumentException::new);
+				.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저 입니다. name = " + user.getName() + "id = " + user.getLogin()));
 		return new SurveyResultResponseDto(surveyee);
 	}
 
@@ -46,7 +46,7 @@ public class SurveyApiController {
 	@GetMapping("/api/v1/survey-result/{login}")
 	public SurveyResultResponseDto findById(@PathVariable String login) {
 		Surveyee surveyee = surveyService.findByLogin(login)
-				.orElseThrow(IllegalArgumentException::new); // TODO: 2020/04/18 처리 필요
+				.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저 입니다. id = " + login));
 		return new SurveyResultResponseDto(surveyee);
 	}
 }

@@ -18,7 +18,7 @@ public class SurveyResultResponseDto {
 	private String messageToCrew;
 
 	public SurveyResultResponseDto(Surveyee entity) {
-		this.login = entity.getLogin();
+		this.login = entity.getLogin().toLowerCase();
 		this.developerType = entity.getDeveloperType().name();
 		this.osStyle = entity.getOsStyle().name();
 		this.computerPrefer = entity.getComputerPreferStyle().name();
