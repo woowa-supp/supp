@@ -94,7 +94,7 @@ function SurveyType() {
   const $rightButtonContainer = document.querySelector(".right-container");
 
   const initQuestion = (index) => {
-    $questionContainer.insertAdjacentHTML("afterbegin", `<h1 id="question-text">${stages[index].question}</h1>`);
+    $questionContainer.insertAdjacentHTML("afterbegin", `<h1 class="title">${stages[index].question}</h1>`);
   };
 
   const initButtons = (index) => {
@@ -114,7 +114,7 @@ function SurveyType() {
       questionIndex = stages[questionIndex].rightDestination;
     }
     if (questionIndex < 10) {
-    $questionContainer.removeChild(document.getElementById("question-text"));
+    $questionContainer.removeChild(document.querySelector(".title"));
     $leftButtonContainer.removeChild(document.getElementById("left"));
     $rightButtonContainer.removeChild(document.getElementById("right"));
 

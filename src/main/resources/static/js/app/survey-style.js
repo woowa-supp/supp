@@ -169,7 +169,8 @@ async function renderPage() {
             answerButton.className = `answer btn btn-primary`;
             var answerText = document.createTextNode(answer);
             answerButton.appendChild(answerText);
-            $(`.answerContainer`).append(answerButton).append(document.createElement(`br`));
+            // $(`.answerContainer`).append(answerButton).append(document.createElement(`br`));
+            $(`.answerContainer`).append(answerButton);
         });
 
         await $(`.answer`).on(`click`, function () {
