@@ -7,6 +7,7 @@
     margin-top: 4.5rem;
     font-size: 3.5rem;
     padding: 2rem 11rem;
+    margin-bottom: 5rem;
 }
 
 .subject {
@@ -41,4 +42,51 @@ body {
     right: 2rem;
     position: absolute;
     text-align: right;
+}
+
+#question-text {
+    margin-top: 10rem;
+    font-size: 5rem;
+    padding: 2rem;
+    margin-bottom: 5rem;
+}
+
+#left {
+    text-align: center;
+    padding: 1rem;
+    font-size: x-large;
+}
+
+#right {
+    text-align: center;
+    padding: 1rem;
+    font-size: x-large;
+}
+
+.left-container {
+    margin: 1rem;
+}
+
+.right-container {
+    margin: 1rem;
+}
+
+.button-container {
+    margin-top: 10rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.answerContainer {
+    padding: 10rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.answer {
+    text-align: center;
+    padding: 1rem;
+    margin: 2rem;
+    width: 65%;
+    font-size: xx-large;
 }
