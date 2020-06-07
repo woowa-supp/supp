@@ -17,7 +17,7 @@ function TypeResult() {
   this.init = async () => {
     const type = await requestType();
 
-    const $header = document.querySelector(".developer_type");
+    const $header = document.querySelector(".developer-type");
     $header.insertAdjacentText('afterbegin', developerTemplate(type));
 
     const $description = document.querySelector(".description");

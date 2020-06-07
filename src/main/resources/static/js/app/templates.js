@@ -77,13 +77,13 @@ export const descriptionTemplate = (type) => {
 
 export const quotesTemplate = (type) => {
   if (type === DEVELOPER_TYPE.THE_ARCHITECT.EN) {
-    return `<blockquote class="relative p-4 text-2xl italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+    return `<blockquote class="relative p-4 italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
         <div class="stylistic-quote-mark mr-2 font-dank-mono text-neutral-500 absolute top-0 leading-none" aria-hidden="true">&ldquo;</div>
         <p class="mb-4">He alone is poor who does not possess knowledge - The Talmud
         <br/>지식 없는 사람은 가난하다...😥</p>
         </blockquote>`
   } else if (type === DEVELOPER_TYPE.CODE_GUARDIAN.EN) {
-    return `<blockquote class="relative p-4 text-2xl italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+    return `<blockquote class="relative p-4 italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
         <div class="stylistic-quote-mark mr-2 font-dank-mono text-neutral-500 absolute top-0 leading-none" aria-hidden="true">&ldquo;</div>
         <p class="mb-4">The three great essentials to achieve anything worthwhile are, first, hard work; second, stick-to-itiveness; third, common sense - Thomas A. Edison
         <br/>가치 있는 것을 달성하기 위해 중요한 세 가지는, 첫째는 노력, 둘째는 충실, 셋째는 상식이다.</p>
@@ -91,7 +91,7 @@ export const quotesTemplate = (type) => {
         <br/>꿈은 마법처럼 이뤄지지 않는다. 땀과 헌신 그리고 노력이 필요하다.</p>
         </blockquote>`
   } else if (type === DEVELOPER_TYPE.MAD_SCIENTIST.EN) {
-    return `<blockquote class="relative p-4 text-2xl italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+    return `<blockquote class="relative p-4 italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
         <div class="stylistic-quote-mark mr-2 font-dank-mono text-neutral-500 absolute top-0 leading-none" aria-hidden="true">&ldquo;</div>
         <p class="mb-4">Imagination is more important than knowledge. For knowledge is limited to all we now know and understand, while imagination embraces the entire world, and all there ever will be to know and understand - Einstein
         <br/>상상력은 지식보다 더 중요하다. 지식은 우리가 이미 알고 이해하는 것에 한정되지만 상상력은 전체 세계와, 장차 우리가 알고 이해하게 될 모든 것을 다 포용하기 때문이다.</p>
@@ -101,13 +101,13 @@ export const quotesTemplate = (type) => {
         <br/>어떠한 바보도 이해가 중요하다는 걸 알 거야.</p>
         </blockquote>`
   } else if (type === DEVELOPER_TYPE.MACGYVER.EN) {
-    return `<blockquote class="relative p-4 text-2xl italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+    return `<blockquote class="relative p-4 italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
         <div class="stylistic-quote-mark mr-2 font-dank-mono text-neutral-500 absolute top-0 leading-none" aria-hidden="true">&ldquo;</div>
         <p class="mb-4">Everyone knows that […] something cannot be done until someone comes along who doesn’t know that - Einstein
         <br/>모든 사람들은 불가능한 것을 이룰 수 없다고 생각합니다. 불가능하다고 생각하지 않는 사람이 그걸 이루기 전까진.</p>
         </blockquote>`
   } else if (type === DEVELOPER_TYPE.NINJA.EN) {
-    return `<blockquote class="relative p-4 text-2xl italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+    return `<blockquote class="relative p-4 italic bg-neutral-100 text-neutral-600 border-neutral-500 quote">
         <div class="stylistic-quote-mark mr-2 font-dank-mono text-neutral-500 absolute top-0 leading-none" aria-hidden="true">&ldquo;</div>
         <p class="mb-4">For those regarded as warriors, when engaged in combat the vanquishing of thine enemy can be the warrior’s only concern. Suppress all human emotion and compassion. Kill whoever stands in thy way, even if that be Lord God, or Buddha himself. This truth lies at the heart of the art of combat - Hattori Hanzo
         <br/>전사로서 전투에 참전할 때는 적을 무찌르는 게 전사의 유일한 관심사일 수 있습니다. 모든 인간적 감정과 동정심을 억제하십시오. 신이나 부처가 길을 막고 있더라도 가차없이 죽이십시오. 이게 전투의 모든 것입니다.</p>
