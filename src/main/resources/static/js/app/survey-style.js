@@ -183,7 +183,7 @@ async function renderPage() {
         var answerFormContainer = document.createElement('div'); // 정답을 입력받을 div 생성
         answerFormContainer.className = `answer form`;
 
-        var messageToCrew = document.createElement('textarea');
+        var messageToCrew = document.createElement('input');
         messageToCrew.id = "messageToCrew";
         messageToCrew.placeholder = "소개하는 말을 남겨주세요";
 
@@ -200,7 +200,7 @@ async function renderPage() {
 
 
         await $(`#btn-save`).on(`click`, function () {
-            var firstAnswer = $("textarea#messageToCrew").val();
+            var firstAnswer = $("input#messageToCrew").val();
 
             resultMap[currentQuestionCount++] = {firstAnswer};
             renderPage();

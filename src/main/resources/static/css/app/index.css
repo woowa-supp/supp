@@ -7,7 +7,7 @@
     margin-top: 4.5rem;
     font-size: 3.5rem;
     padding: 2rem 11rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .subject {
@@ -78,15 +78,20 @@ body {
 }
 
 .answerContainer {
-    padding: 10rem;
+    padding: 5rem;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 3rem;
 }
 
 .answer {
+    display: inherit;
     text-align: center;
     padding: 1rem;
-    margin: 2rem;
-    width: 65%;
+    margin: 5rem auto;
+    width: 25rem;
     font-size: xx-large;
+}
+
+#messageToCrew {
+    padding: 1rem;
 }
