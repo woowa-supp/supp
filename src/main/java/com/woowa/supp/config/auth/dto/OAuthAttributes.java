@@ -9,18 +9,20 @@ import lombok.Getter;
 
 @Getter
 public class OAuthAttributes {
-	private final Map<String, Object> attributes;
-	private final String nameAttributeKey;
-	private final String name;
-	private final String login;
+	private Map<String, Object> attributes;
+	private String nameAttributeKey;
+	private String name;
+	private String login;
+	private String avatar;
 
 	@Builder
 	public OAuthAttributes(
-		Map<String, Object> attributes, String nameAttributeKey, String name, String login) {
+		Map<String, Object> attributes, String nameAttributeKey, String name, String login, String avatar) {
 		this.attributes = attributes;
 		this.nameAttributeKey = nameAttributeKey;
 		this.name = name;
 		this.login = login;
+		this.avatar = avatar;
 	}
 
 	public static OAuthAttributes of(String userNameAttributeName, Map<String, Object> attributes) {
@@ -29,19 +31,21 @@ public class OAuthAttributes {
 
 	private static OAuthAttributes ofGithub(String userNameAttributeName, Map<String, Object> attributes) {
 		return OAuthAttributes.builder()
-		                      .name((String)attributes.get("name"))
-		                      .login((String)attributes.get("login"))
-		                      .attributes(attributes)
-		                      .nameAttributeKey(userNameAttributeName)
-		                      .build();
+			.name((String)attributes.get("name"))
+			.login((String)attributes.get("login"))
+			.avatar((String)attributes.get("avatar_url"))
+			.attributes(attributes)
+			.nameAttributeKey(userNameAttributeName)
+			.build();
 	}
 
 	public User toEntity() {
 		return User.builder()
-		           .name(name)
-		           .login(login)
-		           .role(Role.USER)
-		           .build();
+			.name(name)
+			.login(login)
+			.avatar(avatar)
+			.role(Role.USER)
+			.build();
 	}
 }
 

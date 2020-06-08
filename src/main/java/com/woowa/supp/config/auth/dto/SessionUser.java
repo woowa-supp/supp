@@ -7,11 +7,13 @@ import lombok.Getter;
 
 @Getter
 public class SessionUser implements Serializable {
-	private final String name;
-	private final String login;
+	private String name;
+	private String login;
+	private String avatar;
 
 	public SessionUser(User user) {
 		this.name = user.getName();
 		this.login = user.getLogin();
+		this.avatar = user.getAvatar();
 	}
 }
