@@ -13,14 +13,16 @@ public class OAuthAttributes {
 	private String nameAttributeKey;
 	private String name;
 	private String login;
+	private String avatar;
 
 	@Builder
 	public OAuthAttributes(
-		Map<String, Object> attributes, String nameAttributeKey, String name, String login) {
+		Map<String, Object> attributes, String nameAttributeKey, String name, String login, String avatar) {
 		this.attributes = attributes;
 		this.nameAttributeKey = nameAttributeKey;
 		this.name = name;
 		this.login = login;
+		this.avatar = avatar;
 	}
 
 	public static OAuthAttributes of(String userNameAttributeName, Map<String, Object> attributes) {
@@ -31,6 +33,7 @@ public class OAuthAttributes {
 		return OAuthAttributes.builder()
 			.name((String)attributes.get("name"))
 			.login((String)attributes.get("login"))
+			.avatar((String)attributes.get("avatar_url"))
 			.attributes(attributes)
 			.nameAttributeKey(userNameAttributeName)
 			.build();
@@ -40,6 +43,7 @@ public class OAuthAttributes {
 		return User.builder()
 			.name(name)
 			.login(login)
+			.avatar(avatar)
 			.role(Role.USER)
 			.build();
 	}
