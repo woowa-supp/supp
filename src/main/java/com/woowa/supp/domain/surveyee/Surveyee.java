@@ -65,7 +65,7 @@ public class Surveyee {
 	private String messageToCrew;
 
 	@Builder
-	public Surveyee(String login, String avatar,DeveloperType developerType) {
+	public Surveyee(String login, String avatar, DeveloperType developerType) {
 		this.login = login;
 		this.avatar = avatar;
 		this.developerType = developerType;
