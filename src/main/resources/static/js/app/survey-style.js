@@ -180,9 +180,9 @@ async function renderPage() {
     document.getElementById(`question`).innerHTML = questions[currentQuestionCount]; // question 넣기 사실상 title
     await $(`.answerContainer`).empty(); // answerContainer 초기화 - 이전 문제에서 채워졌기 때문
 
-        var messageToCrew = document.createElement('input');
-        messageToCrew.id = "messageToCrew";
-        messageToCrew.placeholder = "소개하는 말을 남겨주세요";
+    var messageToCrew = document.createElement('input');
+    messageToCrew.id = "messageToCrew";
+    messageToCrew.placeholder = "소개하는 말을 남겨주세요";
 
     var messageToCrew = document.createElement('textarea');
     messageToCrew.id = "messageToCrew";
@@ -199,8 +199,8 @@ async function renderPage() {
     $(`.answerContainer`).append(answerFormContainer);
     $(`.answerContainer`).append(answerButton);
 
-        await $(`#btn-save`).on(`click`, function () {
-            var firstAnswer = $("input#messageToCrew").val();
+    await $(`#btn-save`).on(`click`, function () {
+        var firstAnswer = $("input#messageToCrew").val();
 
     await $(`#btn-save`).on(`click`, function () {
       var firstAnswer = $("textarea#messageToCrew").val();
