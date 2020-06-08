@@ -120,20 +120,20 @@ export const quotesTemplate = (type) => {
 export const wisdomTemplate = (type) => {
   if (type === DEVELOPER_TYPE.THE_ARCHITECT.EN) {
     return `<span>
-        <b>“An ounce of practice is better than tons of theory”Swami Shivananda</b><br/>
+        <b>An ounce of practice is better than tons of theory - Swami Shivananda</b><br/>
         백문이 불여일견
         <br/>
-        <b>“To err is human.”Seneca the Elder</b><br/>
+        <b>To err is human - Seneca the Elder</b><br/>
         인간은 실수하기 마련이다.
         </span>`
   } else if (type === DEVELOPER_TYPE.CODE_GUARDIAN.EN) {
     return `<span>
-        <b>“You must gather your party before venturing forth.”Baldur’s Gate game</b><br/>
+        <b>You must gather your party before venturing forth - Baldur’s Gate game</b><br/>
         모험을 떠나기 전에 팀을 꾸려야 해요..!😎👨‍👩‍👧‍👦
         </span>`
   } else if (type === DEVELOPER_TYPE.MAD_SCIENTIST.EN) {
     return `<span>
-        <b>“If you can’t explain it simply you don’t understand it well enough.”Einstein</b><br/>
+        <b>If you can’t explain it simply you don’t understand it well enough - Einstein</b><br/>
         만약 당신이 어떤 것을 간단하게 설명하지 못한다면 당신은 그걸 충분히 이해하지 못한 것이다. 
         <span>`
   } else if (type === DEVELOPER_TYPE.MACGYVER.EN) {
