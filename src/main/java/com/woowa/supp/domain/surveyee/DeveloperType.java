@@ -20,8 +20,8 @@ public enum DeveloperType {
 
 	public static DeveloperType of(String title) {
 		return Arrays.stream(DeveloperType.values())
-			.filter(developerType -> developerType.title.equals(title))
-			.findFirst()
-			.orElseThrow(() -> new IllegalArgumentException(title + " : no matched type"));
+		             .filter(developerType -> developerType.title.equals(title))
+		             .findFirst()
+		             .orElseThrow(() -> new IllegalArgumentException(title + " : no matched type"));
 	}
 }

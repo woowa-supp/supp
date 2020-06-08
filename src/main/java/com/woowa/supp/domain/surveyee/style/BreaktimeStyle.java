@@ -15,8 +15,8 @@ public enum BreaktimeStyle {
 
 	public static BreaktimeStyle of(String title) {
 		return Arrays.stream(BreaktimeStyle.values())
-			.filter(value -> value.title.equals(title))
-			.findFirst()
-			.orElseThrow(() -> new IllegalArgumentException(title + ": 적절하지 않은 답변 이름 입니다."));
+		             .filter(value -> value.title.equals(title))
+		             .findFirst()
+		             .orElseThrow(() -> new IllegalArgumentException(title + ": 적절하지 않은 답변 이름 입니다."));
 	}
 }
