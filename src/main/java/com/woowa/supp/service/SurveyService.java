@@ -23,6 +23,7 @@ public class SurveyService {
 	public Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
 		Surveyee surveyee = Surveyee.builder()
 				.login(sessionUser.getLogin())
+				.avatar(sessionUser.getAvatar())
 				.developerType(requestDto.toEntity())
 				.build();
 

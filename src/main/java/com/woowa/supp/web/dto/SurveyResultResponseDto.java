@@ -7,6 +7,7 @@ import lombok.Getter;
 public class SurveyResultResponseDto {
 
 	private String login;
+	private String avatar;
 	private String developerType;
 	private String osStyle;
 	private String computerPrefer;
@@ -19,6 +20,7 @@ public class SurveyResultResponseDto {
 
 	public SurveyResultResponseDto(Surveyee entity) {
 		this.login = entity.getLogin().toLowerCase();
+		this.avatar = entity.getAvatar().toLowerCase();
 		this.developerType = entity.getDeveloperType().name();
 		this.osStyle = entity.getOsStyle().name();
 		this.computerPrefer = entity.getComputerPreferStyle().name();

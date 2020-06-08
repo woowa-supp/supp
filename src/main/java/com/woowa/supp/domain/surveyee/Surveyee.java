@@ -9,6 +9,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.validation.annotation.Validated;
 
 import com.woowa.supp.domain.surveyee.style.AfterStudyStyle;
 import com.woowa.supp.domain.surveyee.style.BreaktimeStyle;
@@ -30,6 +33,9 @@ public class Surveyee {
 
 	@Column(nullable = false)
 	private String login;
+
+	@Column(nullable = false)
+	private String avatar;
 
 	@Enumerated(EnumType.STRING)
 	private DeveloperType developerType;
@@ -59,8 +65,9 @@ public class Surveyee {
 	private String messageToCrew;
 
 	@Builder
-	public Surveyee(String login, DeveloperType developerType) {
+	public Surveyee(String login, String avatar,DeveloperType developerType) {
 		this.login = login;
+		this.avatar = avatar;
 		this.developerType = developerType;
 	}
 
