@@ -14,31 +14,31 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
-    private final SurveyService surveyService;
+	private final SurveyService surveyService;
 
-    @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
-        if (user != null) {
-            model.addAttribute("loginName", user.getLogin());
-            ifPresentOrElse(surveyService.findByLogin(user),
-                surveyee -> model.addAttribute("isTypeSurveyDone", surveyee.hasType()),
-                () -> model.addAttribute("isTypeSurveyDone", false));
-        }
-        return "index";
-    }
+	@GetMapping("/")
+	public String index(Model model, @LoginUser SessionUser user) {
+		if (user != null) {
+			model.addAttribute("loginName", user.getLogin());
+			ifPresentOrElse(surveyService.findByLogin(user),
+				surveyee -> model.addAttribute("isTypeSurveyDone", surveyee.hasType()),
+				() -> model.addAttribute("isTypeSurveyDone", false));
+		}
+		return "index";
+	}
 
-    @GetMapping("/survey-type")
-    public String surveyType() {
-        return "survey-type";
-    }
+	@GetMapping("/survey-type")
+	public String surveyType() {
+		return "survey-type";
+	}
 
-    @GetMapping("/survey-style")
-    public String surveyStyle() {
-        return "survey-style";
-    }
+	@GetMapping("/survey-style")
+	public String surveyStyle() {
+		return "survey-style";
+	}
 
-    @GetMapping("/result")
-    public String result() {
-        return "result";
-    }
+	@GetMapping("/result")
+	public String result() {
+		return "result";
+	}
 }

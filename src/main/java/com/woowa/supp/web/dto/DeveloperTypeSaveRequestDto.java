@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class DeveloperTypeSaveRequestDto {
-    private String title;
+	private String title;
 
-    @Builder
-    public DeveloperTypeSaveRequestDto(String title) {
-        this.title = title;
-    }
+	@Builder
+	public DeveloperTypeSaveRequestDto(String title) {
+		this.title = title;
+	}
 
-    public DeveloperType toEntity() {
-        return DeveloperType.of(title);
-    }
+	public DeveloperType toEntity() {
+		return DeveloperType.of(title);
+	}
 }
