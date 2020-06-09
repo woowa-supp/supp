@@ -8,13 +8,13 @@
 }
 
 .title {
-  font-family: BMHANNAPro, serif;
-  color: white;
-  text-align: center;
-  margin-top: 4.5rem;
-  font-size: 3.5rem;
-  padding: 2rem 11rem;
-  margin-bottom: 5rem;
+    font-family: BMHANNAPro, serif;
+    color: white;
+    text-align: center;
+    margin-top: 4.5rem;
+    font-size: 3.5rem;
+    padding: 2rem 11rem;
+    margin-bottom: 3rem;
 }
 
 .subject {
@@ -124,15 +124,20 @@ body {
 }
 
 .answerContainer {
-  padding: 10rem;
-  text-align: center;
-  margin: 0 auto;
+    padding: 5rem;
+    text-align: center;
+    margin: 0 3rem;
 }
 
 .answer {
-  text-align: center;
-  padding: 1rem;
-  margin: 2rem;
-  width: 65%;
-  font-size: xx-large;
+    display: inherit;
+    text-align: center;
+    padding: 1rem;
+    margin: 5rem auto;
+    width: 25rem;
+    font-size: xx-large;
+}
+
+#messageToCrew {
+    padding: 1rem;
 }
