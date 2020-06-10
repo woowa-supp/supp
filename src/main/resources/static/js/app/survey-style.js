@@ -124,12 +124,12 @@ async function renderPage() {
     const firstAnswerTextArea = document.createElement('input'); // 첫번째 정답 textarea 생성
     firstAnswerTextArea.id = "displayName";
     firstAnswerTextArea.placeholder = "기능 수정에 대한 커밋 메세지를 입력해주세요.";
-    firstAnswerTextArea.style.width = "50rem";
+    firstAnswerTextArea.style.width = "40rem";
 
     const secondAnswerTextArea = document.createElement('input'); // 두번째 정답 textarea 생성
     secondAnswerTextArea.id = "methodName";
     secondAnswerTextArea.placeholder = "기능 구현에 대한 커밋 메세지를 입력해주세요.";
-    secondAnswerTextArea.style.width = "50rem";
+    secondAnswerTextArea.style.width = "40rem";
 
     answerContainer.insertAdjacentHTML("afterbegin", `
          <p style="color: snow; font-size: 2rem">자동차 객체들의 위치를 출력하는 기능을 수정했습니다! 커밋할 시간이에요!</p>
