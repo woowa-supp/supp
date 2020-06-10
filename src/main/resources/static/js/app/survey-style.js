@@ -61,6 +61,7 @@ async function renderPage() {
     const secondAnswerTextArea = document.createElement('input'); // 두번째 정답 textarea 생성
     secondAnswerTextArea.id = "methodName";
     secondAnswerTextArea.placeholder = "method명을 입력해주세요.";
+    secondAnswerTextArea.style.color = "black";
     secondAnswerTextArea.style.margin = "0px";
     secondAnswerTextArea.style.width = "13.5rem";
     secondAnswerTextArea.style.height = "2.5rem";
