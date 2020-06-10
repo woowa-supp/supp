@@ -61,6 +61,7 @@ async function renderPage() {
     const secondAnswerTextArea = document.createElement('input'); // 두번째 정답 textarea 생성
     secondAnswerTextArea.id = "methodName";
     secondAnswerTextArea.placeholder = "method명을 입력해주세요.";
+    secondAnswerTextArea.style.color = "black";
     secondAnswerTextArea.style.margin = "0px";
     secondAnswerTextArea.style.width = "13.5rem";
     secondAnswerTextArea.style.height = "2.5rem";
@@ -99,7 +100,7 @@ async function renderPage() {
     var answerText = document.createTextNode("완료");
     answerButton.appendChild(answerText);
 
-    $(`.answerContainer`).append(answerFormContainer);
+    $(`.answerContainer`).append(answerContainer);
     $(`.answerContainer`).append(answerButton);
 
 
@@ -123,12 +124,12 @@ async function renderPage() {
     const firstAnswerTextArea = document.createElement('input'); // 첫번째 정답 textarea 생성
     firstAnswerTextArea.id = "displayName";
     firstAnswerTextArea.placeholder = "기능 수정에 대한 커밋 메세지를 입력해주세요.";
-    firstAnswerTextArea.style.width = "50rem";
+    firstAnswerTextArea.style.width = "40rem";
 
     const secondAnswerTextArea = document.createElement('input'); // 두번째 정답 textarea 생성
     secondAnswerTextArea.id = "methodName";
     secondAnswerTextArea.placeholder = "기능 구현에 대한 커밋 메세지를 입력해주세요.";
-    secondAnswerTextArea.style.width = "50rem";
+    secondAnswerTextArea.style.width = "40rem";
 
     answerContainer.insertAdjacentHTML("afterbegin", `
          <p style="color: snow; font-size: 2rem">자동차 객체들의 위치를 출력하는 기능을 수정했습니다! 커밋할 시간이에요!</p>
@@ -165,7 +166,7 @@ async function renderPage() {
     var answerText = document.createTextNode("완료");
     answerButton.appendChild(answerText);
 
-    $(`.answerContainer`).append(answerFormContainer);
+    $(`.answerContainer`).append(answerContainer);
     $(`.answerContainer`).append(answerButton);
 
 
@@ -180,11 +181,10 @@ async function renderPage() {
     document.getElementById(`question`).innerHTML = questions[currentQuestionCount]; // question 넣기 사실상 title
     await $(`.answerContainer`).empty(); // answerContainer 초기화 - 이전 문제에서 채워졌기 때문
 
-    var messageToCrew = document.createElement('input');
-    messageToCrew.id = "messageToCrew";
-    messageToCrew.placeholder = "소개하는 말을 남겨주세요";
+    let answerFormContainer = document.createElement('div'); // 정답을 입력받을 div 생성
+    answerFormContainer.className = `answer form`;
 
-    var messageToCrew = document.createElement('textarea');
+    var messageToCrew = document.createElement('input');
     messageToCrew.id = "messageToCrew";
     messageToCrew.placeholder = "소개하는 말을 남겨주세요";
 
@@ -201,9 +201,6 @@ async function renderPage() {
 
     await $(`#btn-save`).on(`click`, function () {
         var firstAnswer = $("input#messageToCrew").val();
-
-    await $(`#btn-save`).on(`click`, function () {
-      var firstAnswer = $("textarea#messageToCrew").val();
 
       resultMap[currentQuestionCount++] = { firstAnswer };
       renderPage();
