@@ -99,7 +99,7 @@ async function renderPage() {
     var answerText = document.createTextNode("완료");
     answerButton.appendChild(answerText);
 
-    $(`.answerContainer`).append(answerFormContainer);
+    $(`.answerContainer`).append(answerContainer);
     $(`.answerContainer`).append(answerButton);
 
 
@@ -165,7 +165,7 @@ async function renderPage() {
     var answerText = document.createTextNode("완료");
     answerButton.appendChild(answerText);
 
-    $(`.answerContainer`).append(answerFormContainer);
+    $(`.answerContainer`).append(answerContainer);
     $(`.answerContainer`).append(answerButton);
 
 
@@ -180,11 +180,10 @@ async function renderPage() {
     document.getElementById(`question`).innerHTML = questions[currentQuestionCount]; // question 넣기 사실상 title
     await $(`.answerContainer`).empty(); // answerContainer 초기화 - 이전 문제에서 채워졌기 때문
 
-    var messageToCrew = document.createElement('input');
-    messageToCrew.id = "messageToCrew";
-    messageToCrew.placeholder = "소개하는 말을 남겨주세요";
+    let answerFormContainer = document.createElement('div'); // 정답을 입력받을 div 생성
+    answerFormContainer.className = `answer form`;
 
-    var messageToCrew = document.createElement('textarea');
+    var messageToCrew = document.createElement('input');
     messageToCrew.id = "messageToCrew";
     messageToCrew.placeholder = "소개하는 말을 남겨주세요";
 
@@ -201,9 +200,6 @@ async function renderPage() {
 
     await $(`#btn-save`).on(`click`, function () {
         var firstAnswer = $("input#messageToCrew").val();
-
-    await $(`#btn-save`).on(`click`, function () {
-      var firstAnswer = $("textarea#messageToCrew").val();
 
       resultMap[currentQuestionCount++] = { firstAnswer };
       renderPage();
