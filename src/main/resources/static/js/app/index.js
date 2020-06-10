@@ -1,7 +1,7 @@
 var main = {
-    init: function () {
-        var _this = this;
-    }
+  init: function () {
+    var _this = this;
+  }
 };
 
 main.init();
