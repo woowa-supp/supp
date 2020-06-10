@@ -12,18 +12,17 @@
     color: white;
     text-align: center;
     margin-top: 4.5rem;
-    font-size: 3.5rem;
-    padding: 2rem 11rem;
-    margin-bottom: 3rem;
+    font-size: 3rem;
+    padding: 3rem 8rem;
 }
 
 .subject {
-  font-family: BMHANNAPro, serif;
-  color: white;
-  text-align: center;
-  margin-top: 1rem;
-  padding: 1.5rem;
-  font-size: 2.2rem;
+    font-family: BMHANNAPro, serif;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 2.5rem 9rem;
+    font-size: 2rem;
 }
 
 .sub_subject {
@@ -84,10 +83,9 @@ body {
 }
 
 #user {
-  top: 0.5rem;
-  right: 2rem;
-  position: absolute;
-  text-align: right;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #question-text {
