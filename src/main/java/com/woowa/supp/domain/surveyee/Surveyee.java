@@ -84,6 +84,6 @@ public class Surveyee {
 		String first = style.get(firstKey);
 		String second = style.get(secondKey);
 
-		return "{" + firstKey + ":" + first + "," + secondKey + ":" + second + "}";
+		return "{\"" + firstKey + "\"" + ":" + "\"" + first + "\"" + "," + "\"" + secondKey + "\"" + ":" + "\"" + second + "\"" + "}";
 	}
 }
