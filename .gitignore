@@ -93,3 +93,6 @@ fabric.properties
 # End of https://www.gitignore.io/api/intellij
 /.idea/
 /.gradle/
+/build/
+application-oauth.properties
+application-oauth.properties
