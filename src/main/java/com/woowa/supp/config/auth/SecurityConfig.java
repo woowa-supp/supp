@@ -31,7 +31,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.POST, "/api/v1/**").hasRole(Role.USER.name())
 			.antMatchers(HttpMethod.PUT, "/api/v1/**").hasRole(Role.USER.name())
 			.antMatchers(HttpMethod.DELETE, "/api/v1/**").hasRole(Role.USER.name())
-			.antMatchers(HttpMethod.GET, "/api/v1/**").hasRole(Role.USER.name())
 			.anyRequest()
 			.authenticated()
 			.and()
