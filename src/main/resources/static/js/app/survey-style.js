@@ -108,7 +108,7 @@ async function renderPage() {
       var firstAnswer = $("input#displayName").val();
       var secondAnswer = $("input#methodName").val();
 
-      resultMap[currentQuestionCount++] = { firstAnswer, secondAnswer }; // map에 넣기 (복수개가 들어가네..?!)
+      resultMap[currentQuestionCount++] = { firstAnswer:firstAnswer, secondAnswer:secondAnswer }; // map에 넣기 (복수개가 들어가네..?!)
       renderPage();
     });
   } else if (currentQuestionCount === 6) {
@@ -174,7 +174,7 @@ async function renderPage() {
       var firstAnswer = $("input#displayName").val();
       var secondAnswer = $("input#methodName").val();
 
-      resultMap[currentQuestionCount++] = { firstAnswer, secondAnswer }; // map에 넣기 (복수개가 들어가네..?!)
+      resultMap[currentQuestionCount++] = { firstAnswer:firstAnswer, secondAnswer:secondAnswer }; // map에 넣기 (복수개가 들어가네..?!)
       renderPage();
     });
   } else if (currentQuestionCount === 7) {
@@ -202,7 +202,7 @@ async function renderPage() {
     await $(`#btn-save`).on(`click`, function () {
         var firstAnswer = $("input#messageToCrew").val();
 
-      resultMap[currentQuestionCount++] = { firstAnswer };
+      resultMap[currentQuestionCount++] = firstAnswer;
       renderPage();
     });
   } else {

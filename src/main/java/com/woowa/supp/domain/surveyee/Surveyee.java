@@ -1,26 +1,13 @@
 package com.woowa.supp.domain.surveyee;
 
-import java.util.Map;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.validation.annotation.Validated;
-
-import com.woowa.supp.domain.surveyee.style.AfterStudyStyle;
-import com.woowa.supp.domain.surveyee.style.BreaktimeStyle;
-import com.woowa.supp.domain.surveyee.style.ComputerPreferStyle;
-import com.woowa.supp.domain.surveyee.style.OSStyle;
-import com.woowa.supp.domain.surveyee.style.PairTurnStyle;
+import com.woowa.supp.domain.surveyee.style.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Getter
 @NoArgsConstructor
@@ -85,8 +72,18 @@ public class Surveyee {
 		this.breaktimeStyle = BreaktimeStyle.of(styles.get("2").toString());
 		this.pairTurnStyle = PairTurnStyle.of(styles.get("3").toString());
 		this.afterStudyStyle = AfterStudyStyle.of(styles.get("4").toString());
-		this.testName = styles.get("5").toString();
-		this.gitConvention = styles.get("6").toString();
+		this.testName = toJsonFormat((LinkedHashMap<String, String>) styles.get("5"));
+		this.gitConvention = toJsonFormat((LinkedHashMap<String, String>) styles.get("6"));
 		this.messageToCrew = styles.get("7").toString();
+	}
+
+	private String toJsonFormat(LinkedHashMap<String, String> style) {
+		String firstKey = "firstAnswer";
+		String secondKey = "secondAnswer";
+
+		String first = style.get(firstKey);
+		String second = style.get(secondKey);
+
+		return "{" + firstKey + ":" + first + "," + secondKey + ":" + second + "}";
 	}
 }
