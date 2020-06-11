@@ -5,6 +5,7 @@ import static org.springframework.data.util.Optionals.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.woowa.supp.config.auth.LoginUser;
 import com.woowa.supp.config.auth.dto.SessionUser;
@@ -37,8 +38,8 @@ public class IndexController {
 		return "survey-style";
 	}
 
-	@GetMapping("/result")
-	public String result() {
-		return "result";
+	@GetMapping("/developer/{developerType}")
+	public String result(@PathVariable("developerType") String developerType) {
+		return "developer/" + developerType;
 	}
 }

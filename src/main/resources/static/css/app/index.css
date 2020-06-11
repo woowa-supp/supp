@@ -8,21 +8,21 @@
 }
 
 .title {
-    font-family: BMHANNAPro, serif;
-    color: white;
-    text-align: center;
-    margin-top: 4.5rem;
-    font-size: 3rem;
-    padding: 3rem 8rem;
+  font-family: BMHANNAPro, serif;
+  color: white;
+  text-align: center;
+  margin-top: 4.5rem;
+  font-size: 3rem;
+  padding: 3rem 8rem;
 }
 
 .subject {
-    font-family: BMHANNAPro, serif;
-    color: white;
-    text-align: center;
-    margin-top: 1rem;
-    padding: 2.5rem 9rem;
-    font-size: 2rem;
+  font-family: BMHANNAPro, serif;
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 2.5rem 9rem;
+  font-size: 2rem;
 }
 
 .sub_subject {
@@ -73,7 +73,7 @@ body {
   color: white;
 }
 
-.tmp {
+.background_filter_area {
   width: 100%;
   height: 100%;
   background-color: black;
@@ -83,9 +83,9 @@ body {
 }
 
 #user {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 #question-text {
@@ -122,20 +122,20 @@ body {
 }
 
 .answerContainer {
-    padding: 5rem;
-    text-align: center;
-    margin: 0 3rem;
+  padding: 5rem;
+  text-align: center;
+  margin: 0 3rem;
 }
 
 .answer {
-    display: inherit;
-    text-align: center;
-    padding: 1rem;
-    margin: 5rem auto;
-    width: 25rem;
-    font-size: xx-large;
+  display: inherit;
+  text-align: center;
+  padding: 1rem;
+  margin: 5rem auto;
+  width: 25rem;
+  font-size: xx-large;
 }
 
 #messageToCrew {
-    padding: 1rem;
+  padding: 1rem;
 }
