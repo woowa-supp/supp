@@ -14,8 +14,10 @@ public class SurveyResultResponseDto {
 	private String breaktime;
 	private String pairTurn;
 	private String afterStudy;
-	private String testName;
-	private String gitConvention;
+	private String testNameFirstAnswer;
+	private String testNameSecondAnswer;
+	private String gitConventionFirstAnswer;
+	private String gitConventionSecondAnswer;
 	private String messageToCrew;
 
 	public SurveyResultResponseDto(Surveyee entity) {
@@ -27,8 +29,10 @@ public class SurveyResultResponseDto {
 		this.breaktime = entity.getBreaktimeStyle().name();
 		this.pairTurn = entity.getPairTurnStyle().name();
 		this.afterStudy = entity.getAfterStudyStyle().name();
-		this.testName = entity.getTestName();
-		this.gitConvention = entity.getGitConvention();
+		this.testNameFirstAnswer = entity.getTestNameFirstAnswer();
+		this.testNameSecondAnswer = entity.getTestNameSecondAnswer();
+		this.gitConventionFirstAnswer = entity.getGitConventionFirstAnswer();
+		this.gitConventionSecondAnswer = entity.getGitConventionSecondAnswer();
 		this.messageToCrew = entity.getMessageToCrew();
 	}
 }
