@@ -32,7 +32,13 @@ function putAnswers() {
     contentType: 'application/json; charset=utf-8',
     data: JSON.stringify(resultMap)
   }).done(() => {
-    window.location.href = '/result';
+    $.ajax({
+      type: 'GET',
+      url: '/api/v1/result',
+      dataType: 'json',
+    }).done((data) => {
+      window.location.href = '/developer/' + data;
+    })
   }).fail(error => {
     alert(JSON.stringify(error))
   });
