@@ -37,7 +37,7 @@ function putAnswers() {
       url: '/api/v1/result',
       dataType: 'json',
     }).done((data) => {
-      window.location.href = '/developer/' + data;
+      window.location.href = '/developer/' + data.toLowerCase();
     })
   }).fail(error => {
     alert(JSON.stringify(error))
