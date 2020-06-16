@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers(HttpMethod.GET, "/api/v1/**")
 			.permitAll()
-			.antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile")
+			.antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile", "/developer/**")
 			.permitAll()
 			.antMatchers(HttpMethod.POST, "/api/v1/**").hasRole(Role.USER.name())
 			.antMatchers(HttpMethod.PUT, "/api/v1/**").hasRole(Role.USER.name())
