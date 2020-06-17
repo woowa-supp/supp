@@ -77,7 +77,7 @@ async function renderPage() {
         <p style="color: darkgoldenrod">
         <span style="font-size: 1.5rem; color: darkkhaki">자동차 경주 게임에서 자동차의 이름이 5글자를 넘으면 안되는 요구사항에 대한 예외처리 테스트 코드를 작성해보세요.</span>
         </p><br>
-         <p style="font-size: 1.5rem; color: darkkhaki"> - 메서드명 : Name 클래스의 생성자 사용, 내부에는 validateLength 유효성 검사 메서드가 있다.</p>
+         <p style="font-size: 1.5rem; color: darkkhaki"> - 테스트 대상 : Name 클래스의 생성자, 내부에는 길이에 대한 유효성을 검사하는 validate라는 이름의 메서드 존재</p>
          <p style="font-size: 1.5rem; color: darkkhaki"> - 테스트할 상황 : Name 클래스를 이용하여 이름을 생성하는데 6글자를 입력하여 예외를 발생시킨다.</p>
          <p style="font-size: 1.5rem; color: darkkhaki"> - 입력 : (String type의) name</p><br>
          
