@@ -77,8 +77,9 @@ async function renderPage() {
         <p style="color: darkgoldenrod">
         <span style="font-size: 1.5rem; color: darkkhaki">자동차 경주 게임에서 자동차의 이름이 5글자를 넘으면 안되는 요구사항에 대한 예외처리 테스트 코드를 작성해보세요.</span>
         </p><br>
-         <p style="font-size: 1.5rem; color: darkkhaki"> - 메서드명 : CarNames 클래스의 정적 팩토리 메서드 valueOf()에서 호출하는 validate() 메서드</p>
-         <p style="font-size: 1.5rem; color: darkkhaki"> - 입력 : (String type의) carNames</p><br>
+         <p style="font-size: 1.5rem; color: darkkhaki"> - 메서드명 : Name 클래스의 생성자 사용, 내부에는 validateLength 유효성 검사 메서드가 있다.</p>
+         <p style="font-size: 1.5rem; color: darkkhaki"> - 테스트할 상황 : Name 클래스를 이용하여 이름을 생성하는데 6글자를 입력하여 예외를 발생시킨다.</p>
+         <p style="font-size: 1.5rem; color: darkkhaki"> - 입력 : (String type의) name</p><br>
          
          <p>
          <span style="font-size: 2rem; color: orange">@DisplayName(<span class="display-name-container"></span>)<br></span> 
@@ -138,21 +139,20 @@ async function renderPage() {
     secondAnswerTextArea.style.width = "40rem";
 
     answerContainer.insertAdjacentHTML("afterbegin", `
-         <p style="color: snow; font-size: 2rem">자동차 객체들의 위치를 출력하는 기능을 수정했습니다! 커밋할 시간이에요!</p>
+         <p style="color: snow; font-size: 2rem"> CarFactory 클래스를 이용하여 자동차 생성하는 기능을 구현했습니다! 커밋할 시간이에요!</p>
+         <p style="color: orange; font-size: 1.5rem">
+         public Car create() { <br>
+         ...
+         <br>
+         <span class="method-name-container"></span> 
+         </p>
+
+         <p style="color: snow; font-size: 2rem">OutputView 클래스에 있는 자동차 객체들의 위치를 출력하는 기능의 오류를 고쳤습니다! 다음 커밋은요?</p>
          <p style="color: orange; font-size: 1.5rem">
          public void printCars(Cars cars) { <br>
          ...
          <br>
          <span class="display-name-container"></span>
-         </p>
-         
-         
-         <p style="color: snow; font-size: 2rem">자동차 생성하는 기능을 구현했습니다! 다음 커밋은요?</p>
-         <p style="color: orange; font-size: 1.5rem">
-         public Cars create() { <br>
-         ...
-         <br>
-         <span class="method-name-container"></span> 
          </p>
         `);
 
