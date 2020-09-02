@@ -20,35 +20,54 @@ public class SurveyService {
 	private final SurveyeeRepository surveyeeRepository;
 
 	@Transactional
-	public Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
-		Surveyee surveyee = Surveyee.builder()
-				.login(sessionUser.getLogin())
-				.avatar(sessionUser.getAvatar())
-				.developerType(requestDto.toEntity())
-				.build();
-
-		return surveyeeRepository.save(surveyee).getId();
+	public Long saveOrUpdateType(DeveloperTypeSaveRequestDto requestDto, SessionUser user) {
+		Optional<Surveyee> persist = surveyeeRepository.findByLogin(user.getLogin());
+		if (persist.isPresent()) {
+			return updateType(requestDto, persist.get());
+		}
+		return saveType(requestDto, user);
 	}
 
-	@Transactional
-	public Long updateType(DeveloperTypeSaveRequestDto requestDto, Surveyee surveyee) {
-		surveyee.updateTypeBy(requestDto.toEntity());
+	private Long updateType(DeveloperTypeSaveRequestDto requestDto, Surveyee persist) {
+		persist.updateTypeBy(requestDto.toEntity());
+		return persist.getId();
+	}
+
+	private Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
+		Surveyee surveyee = Surveyee.builder()
+			.login(sessionUser.getLogin())
+			.avatar(sessionUser.getAvatar())
+			.developerType(requestDto.toEntity())
+			.build();
+
 		return surveyeeRepository.save(surveyee).getId();
 	}
 
 	@Transactional
 	public Long saveStyle(Map<String, Object> styles, @LoginUser SessionUser sessionUser) {
-		// TODO: 2020/04/17 type 등록이 안된 상태로 접근한다면?
-		Surveyee surveyee = surveyeeRepository.findByLogin(sessionUser.getLogin()).get();
-		surveyee.updateStylesBy(styles);
-		return surveyeeRepository.save(surveyee).getId();
+		Optional<Surveyee> persist = surveyeeRepository.findByLogin(sessionUser.getLogin());
+		if (persist.isPresent()) {
+			persist.get().updateStylesBy(styles);
+			return persist.get().getId();
+		}
+		throw new IllegalArgumentException("존재하지 않는 surveyee 입니다. sessionUser = " + sessionUser.getLogin());
 	}
 
-	public Optional<Surveyee> findByLogin(SessionUser user) {
+	@Transactional(readOnly = true)
+	public Optional<Surveyee> findOptionalByUser(SessionUser user) {
 		return surveyeeRepository.findByLogin(user.getLogin());
 	}
 
-	public Optional<Surveyee> findByLogin(String login) {
-		return surveyeeRepository.findByLogin(login);
+	@Transactional(readOnly = true)
+	public Surveyee findByUser(SessionUser user) {
+		return surveyeeRepository.findByLogin(user.getLogin())
+			.orElseThrow(() -> new IllegalArgumentException(
+				"존재하지 않는 유저 입니다. name = " + user.getName() + "id = " + user.getLogin()));
+	}
+
+	@Transactional(readOnly = true)
+	public Surveyee findByLogin(String login) {
+		return surveyeeRepository.findByLogin(login)
+			.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저 입니다. id = " + login));
 	}
 }
