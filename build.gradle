@@ -43,4 +43,6 @@ dependencies {
     testCompile('org.springframework.security:spring-security-test')
     testCompile('io.rest-assured:rest-assured:3.3.0')
     testCompile('com.h2database:h2')
+    testCompile('org.mockito:mockito-core')
+    testCompile('org.mockito:mockito-junit-jupiter')
 }

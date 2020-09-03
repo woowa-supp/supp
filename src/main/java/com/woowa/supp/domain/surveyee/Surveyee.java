@@ -69,10 +69,15 @@ public class Surveyee {
 	private String messageToCrew;
 
 	@Builder
-	public Surveyee(String login, String avatar, DeveloperType developerType) {
+	public Surveyee(Long id, String login, String avatar, DeveloperType developerType) {
+		this.id = id;
 		this.login = login;
 		this.avatar = avatar;
 		this.developerType = developerType;
+	}
+
+	public Surveyee(String login, String avatar, DeveloperType developerType) {
+		this(null, login, avatar, developerType);
 	}
 
 	public boolean hasType() {
