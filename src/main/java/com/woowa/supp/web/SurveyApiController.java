@@ -35,14 +35,14 @@ public class SurveyApiController {
 	}
 
 	@GetMapping("/api/v1/survey-result")
-	public SurveyResultResponseDto findById(@LoginUser SessionUser user) {
+	public SurveyResultResponseDto findByUser(@LoginUser SessionUser user) {
 		Surveyee surveyee = surveyService.findByUser(user);
 		return new SurveyResultResponseDto(surveyee);
 	}
 
 	@CrossOrigin(origins = {"https://techcourse.woowahan.com"})
 	@GetMapping("/api/v1/survey-result/{login}")
-	public SurveyResultResponseDto findById(@PathVariable String login) {
+	public SurveyResultResponseDto findByLogin(@PathVariable String login) {
 		Surveyee surveyee = surveyService.findByLogin(login);
 		return new SurveyResultResponseDto(surveyee);
 	}
