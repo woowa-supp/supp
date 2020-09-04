@@ -21,7 +21,7 @@ public class IndexController {
 	public String index(Model model, @LoginUser SessionUser user) {
 		if (user != null) {
 			model.addAttribute("loginName", user.getLogin());
-			ifPresentOrElse(surveyService.findByLogin(user),
+			ifPresentOrElse(surveyService.findOptionalByUser(user),
 				surveyee -> model.addAttribute("isTypeSurveyDone", surveyee.hasType()),
 				() -> model.addAttribute("isTypeSurveyDone", false));
 		}
