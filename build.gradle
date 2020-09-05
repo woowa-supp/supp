@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.9.RELEASE'
+        springBootVersion = '2.3.1.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -26,7 +26,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     compile('org.jsoup:jsoup:1.13.1')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.projectlombok:lombok')
@@ -37,12 +36,8 @@ dependencies {
     compile("org.mariadb.jdbc:mariadb-java-client")
     compile('org.springframework.session:spring-session-jdbc')
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
     testCompile('io.rest-assured:rest-assured:3.3.0')
     testCompile('com.h2database:h2')
-    testCompile('org.mockito:mockito-core')
-    testCompile('org.mockito:mockito-junit-jupiter')
 }
