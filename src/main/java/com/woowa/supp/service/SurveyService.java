@@ -33,12 +33,13 @@ public class SurveyService {
 		return persist.getId();
 	}
 
-	private Long saveType(DeveloperTypeSaveRequestDto requestDto, @LoginUser SessionUser sessionUser) {
+	private Long saveType(DeveloperTypeSaveRequestDto requestDto,
+			@LoginUser SessionUser sessionUser) {
 		Surveyee surveyee = Surveyee.builder()
-			.login(sessionUser.getLogin())
-			.avatar(sessionUser.getAvatar())
-			.developerType(requestDto.toEntity())
-			.build();
+				.login(sessionUser.getLogin())
+				.avatar(sessionUser.getAvatar())
+				.developerType(requestDto.toEntity())
+				.build();
 
 		return surveyeeRepository.save(surveyee).getId();
 	}
@@ -50,7 +51,7 @@ public class SurveyService {
 			persist.get().updateStylesBy(styles);
 			return persist.get().getId();
 		}
-		throw new IllegalArgumentException("존재하지 않는 surveyee 입니다. sessionUser = " + sessionUser.getLogin());
+		throw new UserNotFoundException(sessionUser.getLogin());
 	}
 
 	@Transactional(readOnly = true)
@@ -60,14 +61,13 @@ public class SurveyService {
 
 	@Transactional(readOnly = true)
 	public Surveyee findByUser(SessionUser user) {
-		return surveyeeRepository.findByLogin(user.getLogin())
-			.orElseThrow(() -> new IllegalArgumentException(
-				"존재하지 않는 유저 입니다. name = " + user.getName() + "id = " + user.getLogin()));
+		return findByLogin(user.getLogin());
 	}
 
 	@Transactional(readOnly = true)
 	public Surveyee findByLogin(String login) {
 		return surveyeeRepository.findByLogin(login)
-			.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저 입니다. id = " + login));
+				.orElseThrow(() -> new UserNotFoundException(login));
 	}
 }
+
