@@ -1,5 +1,6 @@
 package com.woowa.supp.service;
 
+import static com.woowa.supp.service.UserNotFoundException.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -37,30 +38,30 @@ public class SurveyServiceTest {
 	@Test
 	public void saveType() {
 		when(surveyeeRepository.findByLogin(any()))
-			.thenReturn(Optional.empty());
+				.thenReturn(Optional.empty());
 
 		when(surveyeeRepository.save(any()))
-			.thenReturn(Surveyee.builder()
-				.id(1L)
-				.build());
+				.thenReturn(Surveyee.builder()
+						.id(1L)
+						.build());
 
 		assertThat(surveyService.saveOrUpdateType(new DeveloperTypeSaveRequestDto("Mad Scientist"),
-			new SessionUser(new User()))).isEqualTo(1L);
+				new SessionUser(new User()))).isEqualTo(1L);
 	}
 
 	@Test
 	public void updateType() {
 		when(surveyeeRepository.findByLogin(any()))
-			.thenReturn(Optional.of(Surveyee.builder().id(1L).build()));
+				.thenReturn(Optional.of(Surveyee.builder().id(1L).build()));
 
 		assertThat(surveyService.saveOrUpdateType(new DeveloperTypeSaveRequestDto("Mad Scientist"),
-			new SessionUser(new User()))).isEqualTo(1L);
+				new SessionUser(new User()))).isEqualTo(1L);
 	}
 
 	@Test
 	public void saveStyle() {
 		when(surveyeeRepository.findByLogin(any()))
-			.thenReturn(Optional.of(Surveyee.builder().id(1L).build()));
+				.thenReturn(Optional.of(Surveyee.builder().id(1L).build()));
 
 		Map<String, Object> styles = new HashMap<>();
 		styles.put("0", "사과");
@@ -78,7 +79,7 @@ public class SurveyServiceTest {
 	@Test
 	public void saveStyleWhenNoSurveyee() {
 		when(surveyeeRepository.findByLogin(any()))
-			.thenReturn(Optional.empty());
+				.thenReturn(Optional.empty());
 
 		Map<String, Object> styles = new HashMap<>();
 		styles.put("0", "사과");
@@ -90,9 +91,9 @@ public class SurveyServiceTest {
 		styles.put("6", new LinkedHashMap<String, String>());
 		styles.put("7", "test");
 
-		assertThatIllegalArgumentException()
-			.isThrownBy(() -> surveyService.saveStyle(styles, new SessionUser(new User())))
-			.withMessageContaining("존재하지 않는 surveyee 입니다. sessionUser = ");
+		assertThatThrownBy(() -> surveyService.saveStyle(styles, new SessionUser(new User())))
+				.isInstanceOf(UserNotFoundException.class)
+				.hasMessageContaining(String.format(USER_NOT_FOUND, "null"));
 	}
 
 	@Test
@@ -104,7 +105,7 @@ public class SurveyServiceTest {
 	@Test
 	public void findByUser() {
 		when(surveyeeRepository.findByLogin(any()))
-			.thenReturn(Optional.of(Surveyee.builder().build()));
+				.thenReturn(Optional.of(Surveyee.builder().build()));
 
 		surveyService.findByUser(new SessionUser(new User()));
 		verify(surveyeeRepository).findByLogin(any());
@@ -113,18 +114,17 @@ public class SurveyServiceTest {
 	@Test
 	public void findByUserWhenNoUser() {
 		when(surveyeeRepository.findByLogin(any()))
-			.thenReturn(Optional.empty());
-
-		assertThatIllegalArgumentException()
-			.isThrownBy(() -> surveyService.findByUser(new SessionUser(new User())))
-			.withMessageContaining("존재하지 않는 유저 입니다. name = ");
+				.thenReturn(Optional.empty());
+		assertThatThrownBy(() -> surveyService.findByUser(new SessionUser(new User())))
+				.isInstanceOf(UserNotFoundException.class)
+				.hasMessageContaining(String.format(USER_NOT_FOUND, "null"));
 	}
 
 	@Test
 	public void findByLogin() {
 		String login = "login";
 		when(surveyeeRepository.findByLogin(login))
-			.thenReturn(Optional.of(Surveyee.builder().build()));
+				.thenReturn(Optional.of(Surveyee.builder().build()));
 		surveyService.findByLogin(login);
 		verify(surveyeeRepository).findByLogin(login);
 	}
@@ -133,10 +133,10 @@ public class SurveyServiceTest {
 	public void findByLoginWhenNoUser() {
 		String login = "login";
 		when(surveyeeRepository.findByLogin(login))
-			.thenReturn(Optional.empty());
+				.thenReturn(Optional.empty());
 
-		assertThatIllegalArgumentException()
-			.isThrownBy(() -> surveyService.findByLogin(login))
-			.withMessageContaining("존재하지 않는 유저 입니다. id = ");
+		assertThatThrownBy(() -> surveyService.findByLogin(login))
+				.isInstanceOf(UserNotFoundException.class)
+				.hasMessageContaining(String.format(USER_NOT_FOUND, login));
 	}
 }
