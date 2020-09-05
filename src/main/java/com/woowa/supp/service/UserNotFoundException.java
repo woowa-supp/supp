@@ -6,5 +6,9 @@ public class UserNotFoundException extends IllegalArgumentException {
     UserNotFoundException(String id) {
         super(String.format(USER_NOT_FOUND, id));
     }
-}
 
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return this;
+    }
+}
