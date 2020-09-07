@@ -26,8 +26,10 @@ repositories {
 }
 
 dependencies {
+    implementation('org.junit.jupiter:junit-jupiter:5.4.2')
     compile('org.jsoup:jsoup:1.13.1')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-webflux')
     compile('org.projectlombok:lombok')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('com.h2database:h2')
@@ -36,6 +38,12 @@ dependencies {
     compile("org.mariadb.jdbc:mariadb-java-client")
     compile('org.springframework.session:spring-session-jdbc')
 
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
     testCompile('org.springframework.security:spring-security-test')
+    testCompile('io.rest-assured:rest-assured:3.3.0')
+    testCompile('com.h2database:h2')
+    testCompile('org.mockito:mockito-core')
+    testCompile('org.mockito:mockito-junit-jupiter')
 }
